@@ -3,6 +3,11 @@
 from tkinter import *
 
 #key down function connected to text boxs and submit button -Maddy
+# Don't forget to enter the dates that code was submitted in the comments @maddy
+# Great work so far in writting the implementation of the window and the label fields.
+# Look up how the 'grid' works in order for the window to have a nicer aesthetic
+# Hugo 11_13_2019
+
 def click():
     entered_text=textentry.get()
     output.delete(0.0, END)
@@ -52,7 +57,7 @@ Label (Window, text="Click to Exit", fg='black', bg='white') .grid(row=6, column
 def close_window():
     Window.destroy()
     exit()
-
+# close window function is great, make sure to implement it though. Hugo  11_13_2019
 #exit button -Maddy
 Button(Window, text="Exit", width=6, command=close_window) .grid(row= 7, column=0, sticky=W)
 
