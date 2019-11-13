@@ -58,6 +58,7 @@ def close_window():
     Window.destroy()
     exit()
 # close window function is great, make sure to implement it though. Hugo  11_13_2019
+# -edit window function is already implementedin command. Great Job!!-Hugo 11_13_2019
 #exit button -Maddy
 Button(Window, text="Exit", width=6, command=close_window) .grid(row= 7, column=0, sticky=W)
 
