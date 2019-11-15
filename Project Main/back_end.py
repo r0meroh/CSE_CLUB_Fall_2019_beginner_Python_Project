@@ -4,52 +4,41 @@
 
 import sqlite3
 
-conn = sqlite3.connect('shoes.db')
-
-
-c = conn.cursor()
-
-# Create table
-# c.execute('''CREATE TABLE shoes
-  #            (brand text, model text, release_date text, price text)''')
-
-# Insert a row of data
-c.execute("INSERT INTO shoes VALUES ('Adidas','yeezy boost','2017', 250.0)")
-
-
-def Steven_inserts():
-    brands = input("brand")
-    models = input("model")
-    releases = input("release")
-    prices = input("price")
-
-    c.execute("INSERT INTO shoes (brand,model,release_date,price) VALUES(?,?,?),(brand, model, release, price)")
+def start():
+    conn = sqlite3.connect('shoes.db')
+    c = conn.cursor()
+    # Create table
+    c.execute('CREATE TABLE IF NOT EXISTS shoe(brand text, model text, price text)')
+    # insert
     conn.commit()
+    conn.close()
+
+
+def Steven_inserts(brands, models, prices):
+    conn = sqlite3.connect('shoes.db')
+    c = conn.cursor()
+    c.execute('INSERT INTO shoe Values(?,?,?)',(brands, models, prices))
+    conn.commit()
+    conn.close()
+
+def print_me():
+    conn = sqlite3.connect('shoes.db')
+    c = conn.cursor()
     for row in c.execute('SELECT * FROM shoes ORDER BY price'):
         print(row)
 
+    conn.close()
 
-# Save (commit) the changes
-conn.commit()
+start()
+shoe = input("brand")
+mod = input("model")
+cash = input("price")
+Steven_inserts(shoe,mod,cash)
+print_me()
 
-# We can also close the connection if we are done with it.
-# Just be sure any changes have been committed or they will be lost.
+# still working on it
+# Hugo 11_15_2019
 
-for row in c.execute('SELECT * FROM shoes ORDER BY price'):
-    print(row)
-
-Steven_inserts()
-conn.close()
-
-
-
-
-
-
-
-
-
-conn.close()
 
 
 
