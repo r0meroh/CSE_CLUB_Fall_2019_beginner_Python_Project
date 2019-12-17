@@ -4,6 +4,7 @@
 
 import sqlite3
 
+
 def start():
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
@@ -17,28 +18,39 @@ def start():
 def Steven_inserts(brands, models, prices):
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
-    c.execute('INSERT INTO shoe Values(?,?,?)',(brands, models, prices))
+    c.execute('INSERT INTO shoe Values(?,?,?)', (brands, models, prices))
     conn.commit()
     conn.close()
+
 
 def print_me():
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
-    for row in c.execute('SELECT * FROM shoes ORDER BY price'):
+    for row in c.execute('SELECT * FROM shoe ORDER BY price'):
         print(row)
 
     conn.close()
 
-start()
-shoe = input("brand")
-mod = input("model")
-cash = input("price")
-Steven_inserts(shoe,mod,cash)
-print_me()
+def remove_shoe(brand):
+    conn = sqlite3.connect('shoes.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM shoe WHERE brand=?',(brand,))
+    conn.commit()
 
+    conn.close()
+
+
+start()
+print_me()
+# shoe = input("brand")
+# mod = input("model")
+# cash = input("price")
+# Steven_inserts(shoe, mod, cash)
+print_me()
+g = input("Enter a shoe to be removed:")
+remove_shoe(g)
+print_me()
 # still working on it
 # Hugo 11_15_2019
 
-#christian is still working on it...
-
-
+# christian is still working on it...
