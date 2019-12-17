@@ -23,44 +23,69 @@ def click():
 Window = Tk()
 
 #Set window title
-Window.title("Please work")
+Window.title("Shoe Base")
 
 #Set window dimensions
-Window.maxsize(1000, 1000)
+#Window.maxsize(1000, 1000)
 
 #Label -Maddy
-Label (Window, text="Enter Info", fg='black', bg='white') .grid(row=1, column=0, sticky=E)
+#Label (Window, text=" Shoe Base ", fg='black', bg='white') .grid(row=1, column=0)
 
-#text entry box -Maddy
-textentry = Entry(Window, width=20, bg='white')
-textentry.grid( row=2, column=0, sticky=W)
+#Shoe Brand Label -Maddy 12/17/19
+Label_1 = Label(Window, text=" Brand ", fg='black')
+Label_1.grid(row=1, column=1)
 
-#submit button -Maddy
-Button(Window, text="Submit", width=6, command=click) .grid(row= 3, column=0, sticky=W)
+#Text Entry box for Brand - Maddy 12/17/19
+Brand_entry = Entry(Window, width=10, bg='white')
+Brand_entry.grid( row=1, column=3)
 
-#another label-Maddy
-Label (Window, text="\nInfo", fg='black', bg='white') .grid(row=4, column=0, sticky=W)
+#add button -Maddy 12/17/19
+Add_button = Button(Window, text="Add", width=6, command=click)
+Add_button.grid(row=1 , column=5)
 
-#text box -Maddy
-output = Text(Window, width=75, height=6, wrap=WORD, bg='white')
-output.grid(row=5, column=0, columnspan=2, sticky=W)
+#Shoe Model Label -Maddy 12/17/19
+Label_2 = Label(Window, text=" Model ", fg='black')
+Label_2.grid(row=5, column=1)
+
+#Text Entry box for Model -Maddy 12/17/19
+Model_entry = Entry(Window, width=10, bg='white')
+Model_entry.grid( row=5, column=3)
+
+#Delete button -Maddy 12/17/19
+Delete_button = Button(Window, text="Delete", width=6, command=click)
+Delete_button.grid(row=5 , column=5)
+
+#Shoe Price Label -Maddy 12/17/19
+Label_3 = Label(Window, text=" Price ", fg='black')
+Label_3.grid(row=10, column=1)
+
+#Text Entry box for Price -Maddy 12/17/19
+Price_entry = Entry(Window, width=10, bg='white')
+Price_entry.grid( row=10, column=3)
+
+#Search Button - Maddy 12/17/19
+Search_button = Button(Window, text="Delete", width=6, command=click)
+Search_button.grid(row=10 , column=5)
+
+#List -Maddy 12/17/19
+Items_in_lists = Listbox(Window, height=5, width=40)
+Items_in_lists.grid(row=15, column=1, rowspan=5, columnspan=5)
+
 
 #dictionary(if we were searching a word) -Maddy
-compdictionary = {
-    'algoritm': 'text', 'refrence in submit box': 'text text text'
-}
+#compdictionary = {
+    #'algoritm': 'text', 'refrence in submit box': 'text text text'
+#}
 
-#exit label -Maddy
-Label (Window, text="Click to Exit", fg='black', bg='white') .grid(row=6, column=0, sticky=E)
 
 #exit function-maddy
 def close_window():
     Window.destroy()
     exit()
-# close window function is great, make sure to implement it though. Hugo  11_13_2019
-# -edit window function is already implementedin command. Great Job!!-Hugo 11_13_2019
+
 #exit button -Maddy
-Button(Window, text="Exit", width=6, command=close_window) .grid(row= 7, column=0, sticky=W)
+Exit_button = Button(Window, text="Exit", width=6, command=close_window)
+Exit_button.grid(row= 21, column=5)
 
 
 
@@ -68,4 +93,3 @@ Button(Window, text="Exit", width=6, command=close_window) .grid(row= 7, column=
 Window.mainloop()
 
 # End code here  11/8/2019 - Tawanda
-#hello
