@@ -28,13 +28,17 @@ def display_list():
 
 
 def add_item():
-    back_end.Steven_inserts(Brand_entry.get(),Model_entry.get(),Price_entry.get())
+    back_end.insert(Brand_entry.get(),Model_entry.get(),Price_entry.get())
     Items_in_lists.delete(0,END)
     Items_in_lists.insert(END,(Brand_entry.get(),Model_entry.get(),Price_entry.get()))
 
 def delete_item():
     back_end.remove_shoe(Model_entry.get())
 
+def search_item():
+    Items_in_lists.delete(0,END)
+    for i in back_end.search_shoe(Brand_entry.get()):
+        Items_in_lists.insert(END, i)
 
 
 #created window variable
@@ -82,7 +86,7 @@ Price_entry = Entry(Window, width=10, bg='white')
 Price_entry.grid( row=10, column=3)
 
 #Search Button - Maddy 12/17/19
-Search_button = Button(Window, text="Search", width=6, command=click)
+Search_button = Button(Window, text="Search", width=6, command=search_item)
 Search_button.grid(row=10 , column=5)
 
 

@@ -23,7 +23,11 @@ def print_me():
     c = conn.cursor()
     for row in c.execute('SELECT * FROM shoe ORDER BY price'):
         print(row)
+    c.execute('SELECT * FROM shoe ORDER BY price')
+    rows = c.fetchall()
     conn.close()
+    return rows
+
 
 def remove_shoe(Model):
     conn = sqlite3.connect('shoes.db')
@@ -37,19 +41,23 @@ def search_shoe(brand):
     c = conn.cursor()
     for row in c.execute('SELECT * FROM shoe WHERE brand=?',(brand,)):
         print(row)
+
+    c.execute('SELECT * FROM shoe WHERE brand=?',(brand,))
+    row = c.fetchall()
     conn.close()
+    return row
 
 start()
-print_me()
-shoe = input("brand")
-mod = input("model")
-cash = input("price")
-insert(shoe, mod, cash)
-print_me()
+#print_me()
+#shoe = input("brand")
+#mod = input("model")
+#cash = input("price")
+#insert(shoe, mod, cash)
+#print_me()
 
-r = input("Enter a shoe to be removed: ")
-remove_shoe(r)
-print_me()
+#r = input("Enter a shoe to be removed: ")
+#remove_shoe(r)
+#print_me()
 
-s = input("Enter a shoe to be searched: ")
-search_shoe(s)
+#s = input("Enter a shoe to be searched: ")
+#search_shoe(s)
