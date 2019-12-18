@@ -37,7 +37,7 @@ def delete_item():
 
 def search_item():
     Items_in_lists.delete(0,END)
-    for i in back_end.search_shoe(Brand_entry.get()):
+    for i in back_end.search_shoe(Brand_entry.get(),Model_entry.get(),Price_entry.get()):
         Items_in_lists.insert(END, i)
 
 

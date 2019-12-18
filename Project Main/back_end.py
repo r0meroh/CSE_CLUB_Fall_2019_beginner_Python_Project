@@ -36,13 +36,13 @@ def remove_shoe(Model):
     conn.commit()
     conn.close()
 
-def search_shoe(brand):
+def search_shoe(brand='',model='',price=''):
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
     for row in c.execute('SELECT * FROM shoe WHERE brand=?',(brand,)):
         print(row)
 
-    c.execute('SELECT * FROM shoe WHERE brand=?',(brand,))
+    c.execute('SELECT * FROM shoe WHERE brand=? OR model=? OR price=?',(brand,model,price))
     row = c.fetchall()
     conn.close()
     return row
