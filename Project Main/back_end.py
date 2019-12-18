@@ -1,6 +1,4 @@
 # backend initial commit
-# nothing submitted thus far. Hugo 11_13_2019
-# testing Hugo 11_15_2019
 
 import sqlite3
 
@@ -13,14 +11,12 @@ def start():
     conn.commit()
     conn.close()
 
-
 def insert(brands, models, prices):
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
     c.execute('INSERT INTO shoe Values(?,?,?)', (brands, models, prices))
     conn.commit()
     conn.close()
-
 
 def print_me():
     conn = sqlite3.connect('shoes.db')
