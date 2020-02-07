@@ -28,14 +28,14 @@ def print_me():
     conn.close()
     return rows
 
-
+# Steven Ortega 12/17/2019
 def remove_shoe(Model):
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
     c.execute('DELETE FROM shoe WHERE model=?',(Model,))
     conn.commit()
     conn.close()
-
+# Christian Mesina 12/17/2019
 def search_shoe(brand='',model='',price=''):
     conn = sqlite3.connect('shoes.db')
     c = conn.cursor()
